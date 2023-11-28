@@ -1,20 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blank Canvas</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&family=Playpen+Sans:wght@500&family=Roboto:wght@100&family=Sometype+Mono:wght@700&display=swap"
+      rel="stylesheet" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="menu-bars-container">
+          <i class="fa-solid fa-bars fa-2xl hamburger"></i>
+        </div>
+        <div class="title-container">
+          <h1 class="title">Blank Canvas</h1>
+          <img
+            class="logo"
+            src="images/Blank-Canvas-Logo.jpeg"
+            alt="Blank-Canvas-Logo" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <h2>Gallery</h2>
+      <div class="form-container hidden" data-view="search-form">
+        <form id="art-selections">
+          <div class="form-actions-container">
+            <div class="selections-container">
+              <div class="period-selections-container">
+                <label for="art-period">Choose an art period</label>
+                <select name="art-period" id="art-period" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="contemporary-art">Contemporary Art</option>
+                </select>
+              </div>
+              <div class="style-selections-container">
+                <label for="art-style">Choose an art style</label>
+                <select name="art-style" id="art-style" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="painting">Painting</option>
+                </select>
+              </div>
+            </div>
+            <div class="buttons-container">
+              <button class="randomize">Randomize</button>
+              <button class="create">Create Gallery</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="form-container" data-view="search-results">
+        <ul>
+          <li class="column-third">
+            <img
+              class="gallery-img"
+              src="https://cdn.pariscityvision.com/library/image/5449.jpg" />
+            <h3>Mona Lisa</h3>
+            <h4>Leonardo da Vinci, 1503-1506</h4>
+          </li>
+          <li class="column-third">
+            <img
+              class="gallery-img"
+              src="https://insidethevatican.com/wp-content/uploads/2012/03/Cenacolo-a-Tongerlo-4BD63E-1.jpg" />
+            <h3>Last Supper</h3>
+            <h4>Leonardo da Vinci, 1494-1498</h4>
+          </li>
+          <li class="column-third">
+            <img
+              class="gallery-img"
+              src="https://www.leonardodavinci.net/images/gallery/the-vitruvian-man.jpg" />
+            <h3>The Vitruvian Man</h3>
+            <h4>Leonardo da Vinci, 1487</h4>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

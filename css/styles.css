@@ -1,0 +1,104 @@
+body {
+  background-color: #fbfaf0;
+}
+
+label {
+  font-family: 'Gothic A1', sans-serif;
+}
+
+button {
+  font-family: 'Gothic A1', sans-serif;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  margin: 0 2rem;
+  padding: 1rem 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.header-container {
+  background-color: #bd133c;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  color: black;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.title {
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 0.5rem;
+}
+
+.logo {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.form-actions-container {
+  margin-top: 5rem;
+}
+
+.period-selections-container {
+  padding: 3rem;
+}
+
+.style-selections-container {
+  padding: 3rem;
+}
+
+.buttons-container {
+  padding: 3rem;
+}
+
+.randomize {
+  color: white;
+  background-color: #13c1c1;
+  border-radius: 4%;
+  width: 7.75rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.create {
+  color: white;
+  background-color: #bd133c;
+  border-radius: 4%;
+  width: 7.75rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+#art-period {
+  margin-top: 0.5rem;
+}
+
+#art-style {
+  margin-top: 0.5rem;
+}
+
+.gallery-img {
+  width: 250px;
+  height: auto;
+  cursor: pointer;
+}
