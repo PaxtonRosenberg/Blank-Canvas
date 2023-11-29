@@ -49,6 +49,10 @@
   flex-direction: column;
 }
 
+.column-third {
+  flex-basis: calc(100% / 4);
+}
+
 @media screen and (max-width: 768px) {
   .header-container {
     flex-basis: 100%;

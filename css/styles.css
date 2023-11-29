@@ -14,6 +14,8 @@ ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 li {
@@ -88,6 +90,7 @@ a:hover {
 
 .buttons-container {
   padding: 3rem;
+  margin: 1rem;
 }
 
 .randomize {
@@ -109,12 +112,8 @@ a:hover {
   cursor: pointer;
 }
 
-#art-period {
-  margin-top: 0.5rem;
-}
-
 #art-style {
-  margin-top: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .gallery-img {
@@ -122,6 +121,7 @@ a:hover {
   height: auto;
   cursor: pointer;
   margin-top: 2rem;
+  box-shadow: 0.5rem 0.5rem 1rem grey;
 }
 
 .gallery-text {
@@ -138,9 +138,20 @@ a:hover {
   font-size: 1rem;
   font-style: italic;
   font-family: 'Gothic A1', sans-serif;
+  width: 15rem;
+  margin-top: 0;
 }
 
 .tagline-text {
   font-family: 'Gothic A1', sans-serif;
   font-size: 0.75rem;
+  width: 15rem;
+}
+
+.heart-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2.5rem;
+  width: 100%;
 }
