@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,6 +26,12 @@
       <div class="header-container">
         <div class="menu-bars-container">
           <i class="fa-solid fa-bars fa-2xl hamburger"></i>
+          <div class="menu hidden">
+            <a class="home-link">Home</a>
+            <a class="gallery-link">Gallery</a>
+            <a class="showcase-link">Showcase</a>
+            <a class="workspace-link">Workspace</a>
+          </div>
         </div>
         <div class="title-container">
           <h1 class="title">Blank Canvas</h1>
@@ -37,57 +43,146 @@
       </div>
     </header>
     <main>
-      <h2>Gallery</h2>
-      <div class="form-container hidden" data-view="search-form">
+      <h2 class="gallery-text hidden">Gallery</h2>
+      <p class="no-results hidden">No artwork to show</p>
+      <div class="form-container" data-view="search-form">
         <form id="art-selections">
           <div class="form-actions-container">
             <div class="selections-container">
               <div class="period-selections-container">
                 <label for="art-period">Choose an art period</label>
                 <select name="art-period" id="art-period" required>
-                  <option value="" disabled selected>Select</option>
-                  <option value="contemporary-art">Contemporary Art</option>
+                  <option class="exclude" value="" disabled selected>
+                    Select
+                  </option>
+                  <option class="period-option" value="Byzantine">
+                    Byzantine
+                  </option>
+                  <option class="period-option" value="Romanesque">
+                    Romanesque
+                  </option>
+                  <option class="period-option" value="Gothic">Gothic</option>
+                  <option class="period-option" value="Renaissance">
+                    Renaissance
+                  </option>
+                  <option class="period-option" value="Mannerism">
+                    Mannerism
+                  </option>
+                  <option class="period-option" value="Baroque">Baroque</option>
+                  <option class="period-option" value="Rocco">Rocco</option>
+                  <option class="period-option" value="Neoclassicism">
+                    Neoclassicism
+                  </option>
+                  <option class="period-option" value="Romanticism">
+                    Romanticism
+                  </option>
+                  <option class="period-option" value="Realism">Realism</option>
+                  <option class="period-option" value="Pre-Raphaelite">
+                    Pre-Raphaelite
+                  </option>
+                  <option class="period-option" value="Impressionism">
+                    Impressionism
+                  </option>
+                  <option class="period-option" value="Naturalism">
+                    Naturalism
+                  </option>
+                  <option class="period-option" value="Post-Impressionism">
+                    Post-Impressionism
+                  </option>
+                  <option class="period-option" value="Symbolism">
+                    Symbolism
+                  </option>
+                  <option class="period-option" value="Expressionism">
+                    Expressionism
+                  </option>
+                  <option class="period-option" value="Art Noveau">
+                    Art Noveau
+                  </option>
+                  <option class="period-option" value="Cubism">Cubism</option>
+                  <option class="period-option" value="Futurism">
+                    Futurism
+                  </option>
+                  <option class="period-option" value="Dadaism">Dadaism</option>
+                  <option class="period-option" value="New Objectivity">
+                    New Objectivity
+                  </option>
+                  <option class="period-option" value="Precisionism">
+                    Precisionism
+                  </option>
+                  <option class="period-option" value="Art Deco">
+                    Art Deco
+                  </option>
+                  <option class="period-option" value="Bauhaus">Bauhaus</option>
+                  <option class="period-option" value="Surrealism">
+                    Surrealism
+                  </option>
+                  <option class="period-option" value="Abrstract Expressionism">
+                    Abrstract Expressionism
+                  </option>
+                  <option class="period-option" value="Pop Art/Op Art">
+                    Pop-Art / Op-Art
+                  </option>
+                  <option class="period-option" value="Arte Povera">
+                    Arte Povera
+                  </option>
+                  <option class="period-option" value="Minimalism">
+                    Minimalism
+                  </option>
+                  <option class="period-option" value="Photorealism">
+                    Photorealism
+                  </option>
+                  <option class="period-option" value="Contemporary Art">
+                    Contemporary Art
+                  </option>
                 </select>
               </div>
               <div class="style-selections-container">
                 <label for="art-style">Choose an art style</label>
                 <select name="art-style" id="art-style" required>
-                  <option value="" disabled selected>Select</option>
-                  <option value="painting">Painting</option>
+                  <option class="exclude" value="" disabled selected>
+                    Select
+                  </option>
+                  <option class="style-option" value="Applied Arts of Europe">
+                    Applied Arts of Europe
+                  </option>
+                  <option class="style-option" value="Arts of Africa">
+                    Arts of Africa
+                  </option>
+                  <option class="style-option" value="Arts of the Americas">
+                    Arts of the Americas
+                  </option>
+                  <option class="style-option" value="Arts of Asia">
+                    Arts of Asia
+                  </option>
+                  <option class="style-option" value="Contemporary Art">
+                    Contemporary Art
+                  </option>
+                  <option
+                    class="style-option"
+                    value="Painting and Sculpture of Europe">
+                    Painting and Sculpture of Europe
+                  </option>
+                  <option class="style-option" value="Prints and Drawings">
+                    Prints and Drawings
+                  </option>
+                  <option class="style-option" value="Photography and Media">
+                    Photography and Media
+                  </option>
+                  <option class="style-option" value="Textiles">
+                    Textiles
+                  </option>
                 </select>
               </div>
             </div>
             <div class="buttons-container">
-              <button class="randomize">Randomize</button>
-              <button class="create">Create Gallery</button>
+              <button type="button" class="randomize">Randomize</button>
+              <button type="submit" class="create">Create Gallery</button>
             </div>
           </div>
         </form>
       </div>
-      <div class="form-container" data-view="search-results">
-        <ul>
-          <li class="column-third">
-            <img
-              class="gallery-img"
-              src="https://cdn.pariscityvision.com/library/image/5449.jpg" />
-            <h3>Mona Lisa</h3>
-            <h4>Leonardo da Vinci, 1503-1506</h4>
-          </li>
-          <li class="column-third">
-            <img
-              class="gallery-img"
-              src="https://insidethevatican.com/wp-content/uploads/2012/03/Cenacolo-a-Tongerlo-4BD63E-1.jpg" />
-            <h3>Last Supper</h3>
-            <h4>Leonardo da Vinci, 1494-1498</h4>
-          </li>
-          <li class="column-third">
-            <img
-              class="gallery-img"
-              src="https://www.leonardodavinci.net/images/gallery/the-vitruvian-man.jpg" />
-            <h3>The Vitruvian Man</h3>
-            <h4>Leonardo da Vinci, 1487</h4>
-          </li>
-        </ul>
+      <div class="form-container hidden" data-view="search-results">
+        <ul></ul>
       </div>
     </main>
     <script src="js/data.js"></script>

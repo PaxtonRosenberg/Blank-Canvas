@@ -21,6 +21,11 @@ li {
   padding: 1rem 2rem;
 }
 
+a:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.725);
+}
+
 .hidden {
   display: none;
 }
@@ -38,6 +43,21 @@ li {
 
 .hamburger:hover {
   cursor: pointer;
+}
+
+.menu {
+  position: relative;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 0.5px dashed black;
+}
+
+.menu a {
+  color: white;
+  display: block;
+  background-color: bd133c;
+  margin: 0.5rem;
+  text-align: center;
 }
 
 .title {
@@ -101,4 +121,26 @@ li {
   width: 250px;
   height: auto;
   cursor: pointer;
+  margin-top: 2rem;
+}
+
+.gallery-text {
+  margin-left: 1rem;
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+}
+
+.title-text {
+  font-size: 1rem;
+  font-style: italic;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.tagline-text {
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 0.75rem;
 }
