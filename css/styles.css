@@ -15,7 +15,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 li {
@@ -154,4 +154,8 @@ a:hover {
   align-items: center;
   height: 2.5rem;
   width: 100%;
+}
+
+.red-bg {
+  color: red;
 }
