@@ -44,6 +44,7 @@
     </header>
     <main>
       <h2 class="gallery-text hidden">Gallery</h2>
+      <button type="submit" class="save-rating hidden">Save</button>
       <p class="no-results hidden">No artwork to show</p>
       <div class="form-container" data-view="search-form">
         <form id="art-selections">
@@ -54,6 +55,14 @@
                 <select name="art-style" id="art-style" required>
                   <option class="exclude" value="" disabled selected>
                     Select
+                  </option>
+                  <option class="style-option" value="AIC Archives">
+                    AIC Archives
+                  </option>
+                  <option
+                    class="style-option"
+                    value="Arts of the Ancient Mediterranean and Byzantium">
+                    Arts of the Ancient Mediterranean and Byzantium
                   </option>
                   <option class="style-option" value="Applied Arts of Europe">
                     Applied Arts of Europe
@@ -102,6 +111,9 @@
       </div>
       <div class="form-container hidden" data-view="showcase">
         <ul class="showcase-list"></ul>
+      </div>
+      <div class="hidden" data-view="workspace">
+        <ul class="workspace-list"></ul>
       </div>
     </main>
     <script src="js/data.js"></script>

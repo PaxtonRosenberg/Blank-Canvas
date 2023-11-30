@@ -4,7 +4,7 @@ let data = {
   view: 'search-form',
   matches: [],
   showcase: [],
-  editing: null,
+  workspace: [],
   nextPageId: 1,
 };
 

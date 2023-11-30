@@ -53,6 +53,11 @@
   flex-basis: calc(100% / 4);
 }
 
+.description-header-box {
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .header-container {
     flex-basis: 100%;
@@ -87,5 +92,13 @@
 
   .column-third {
     width: 100%;
+  }
+
+  .workspace-img {
+    width: 25rem;
+  }
+
+  .description-box {
+    width: 400px;
   }
 }

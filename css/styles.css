@@ -23,6 +23,13 @@ li {
   padding: 1rem 2rem;
 }
 
+.workspace-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.725);
@@ -57,7 +64,7 @@ a:hover {
 .menu a {
   color: white;
   display: block;
-  background-color: bd133c;
+  background-color: #bd133c;
   margin: 0.5rem;
   text-align: center;
 }
@@ -146,6 +153,7 @@ a:hover {
   font-family: 'Gothic A1', sans-serif;
   font-size: 0.75rem;
   width: 15rem;
+  margin: 0.2rem 0;
 }
 
 .heart-box {
@@ -158,4 +166,49 @@ a:hover {
 
 .red-bg {
   color: red;
+}
+
+.fa-heart {
+  cursor: pointer;
+}
+
+.save-rating {
+  margin-left: 3.2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10%;
+  background-color: #bd133c;
+  color: #fbfaf0;
+  font-family: 'Gothic A1', sans-serif;
+  box-shadow: 0.1rem 0.1rem 0.1rem grey;
+}
+
+.save-rating:hover {
+  box-shadow: 0.1rem 0.1rem 0.1rem black;
+  cursor: pointer;
+}
+
+.description-text {
+  font-family: 'Gothic A1', sans-serif;
+  word-spacing: 0.1rem;
+  line-height: 1.5rem;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.description-header-text {
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 0.75rem;
+}
+
+.description-box {
+  border: 0.5rem solid black;
+  border-radius: 5%;
+  background-color: #fbfaf0;
+  max-width: 850px;
+}
+
+.fa-plus,
+.fa-minus {
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
