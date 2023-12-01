@@ -361,6 +361,35 @@ function renderWorkspace(entry) {
     $heart.setAttribute('class', 'fa-solid fa-heart fa-xl red-bg');
     $heartBox.appendChild($heart);
 
+    const $starsBox = document.createElement('div');
+    $starsBox.setAttribute('class', 'stars-box');
+    $heartBox.append($starsBox);
+
+    const $star1 = document.createElement('i');
+    $star1.setAttribute('class', 'fa-regular fa-star fa-xl');
+    $star1.setAttribute('id', 'one');
+    $starsBox.appendChild($star1);
+
+    const $star2 = document.createElement('i');
+    $star2.setAttribute('class', 'fa-regular fa-star fa-xl');
+    $star2.setAttribute('id', 'two');
+    $starsBox.appendChild($star2);
+
+    const $star3 = document.createElement('i');
+    $star3.setAttribute('class', 'fa-regular fa-star fa-xl');
+    $star3.setAttribute('id', 'three');
+    $starsBox.appendChild($star3);
+
+    const $star4 = document.createElement('i');
+    $star4.setAttribute('class', 'fa-regular fa-star fa-xl');
+    $star4.setAttribute('id', 'four');
+    $starsBox.appendChild($star4);
+
+    const $star5 = document.createElement('i');
+    $star5.setAttribute('class', 'fa-regular fa-star fa-xl');
+    $star5.setAttribute('id', 'five');
+    $starsBox.appendChild($star5);
+
     const $title = document.createElement('h4');
     $title.setAttribute('class', 'title-text');
     $title.textContent = entry.title;
@@ -443,5 +472,33 @@ $workspaceUl.addEventListener('click', function (event) {
     $descriptionBox.className = 'hidden description-box';
 
     $restract.className = 'fa-solid fa-plus fa-sm';
+  } else if (event.target.tagName === 'I') {
+    const clickedParent = event.target.closest('li');
+
+    const stars = [...clickedParent.getElementsByClassName('fa-star')];
+
+    executeRating(stars);
   }
 });
+
+function executeRating(stars) {
+  const filledIn = 'fa-solid fa-star fa-xl bg';
+  const notFilledIn = 'fa-regular fa-star fa-xl';
+  let i;
+
+  stars.map((star) => {
+    star.onclick = () => {
+      i = stars.indexOf(star);
+
+      if (star.className === notFilledIn) {
+        for (i; i >= 0; i--) {
+          stars[i].className = filledIn;
+        }
+      } else {
+        for (i; i < stars.length; i++) {
+          stars[i].className = notFilledIn;
+        }
+      }
+    };
+  });
+}

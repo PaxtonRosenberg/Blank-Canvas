@@ -32,7 +32,6 @@ li {
 
 a:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.725);
 }
 
 .hidden {
@@ -67,6 +66,10 @@ a:hover {
   background-color: #bd133c;
   margin: 0.5rem;
   text-align: center;
+}
+
+.menu a:hover {
+  color: lightgrey;
 }
 
 .title {
@@ -164,12 +167,33 @@ a:hover {
   width: 100%;
 }
 
+.stars-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 2.5rem;
+  width: 100%;
+}
+
 .red-bg {
   color: red;
 }
 
-.fa-heart {
+.black-bg {
+  color: black;
+}
+
+.fa-heart,
+.fa-star {
   cursor: pointer;
+}
+
+.fa-star:hover {
+  color: goldenrod;
+}
+
+.bg {
+  color: goldenrod;
 }
 
 .save-rating {
