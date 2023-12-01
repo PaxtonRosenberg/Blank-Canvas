@@ -225,7 +225,7 @@ a:hover {
 }
 
 .description-box {
-  border: 0.5rem solid black;
+  border: 0.2rem solid #bd133c;
   border-radius: 5%;
   background-color: #fbfaf0;
   max-width: 850px;

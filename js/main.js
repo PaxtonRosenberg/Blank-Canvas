@@ -1,4 +1,7 @@
 /* global data */
+
+/* Document Selectors
+ */
 const $artStyle = document.getElementById('art-style');
 const $randomButton = document.querySelector('.randomize');
 const $createButton = document.querySelector('.create');
@@ -27,6 +30,8 @@ let artStyle = null;
 let result;
 const favorites = [];
 
+/*AJAX Request function
+ */
 function ajaxRequest() {
   const xhr = new XMLHttpRequest();
   xhr.open(
@@ -37,7 +42,6 @@ function ajaxRequest() {
   xhr.addEventListener('load', function () {
     const artworks = xhr.response.data;
     data.matches = [];
-    console.log(artworks);
     for (let i = 0; i < artworks.length; i++) {
       if (artworks[i].department_title === artStyle) {
         const artObject = {};
@@ -50,6 +54,7 @@ function ajaxRequest() {
         artObject.imageId = artworks[i].image_id;
         artObject.title = artworks[i].title;
         artObject.id = artworks[i].id;
+        artObject.rating = 0;
         data.matches.push(artObject);
       }
     }
@@ -62,6 +67,9 @@ function ajaxRequest() {
   xhr.send();
 }
 
+/*the form is the create gallery button on the home page and this is what
+happens after you click it with search criteria
+*/
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
   artStyle = $artStyle.value;
@@ -70,6 +78,8 @@ $form.addEventListener('submit', function (event) {
   $showcaseView.classList.add('hidden');
 });
 
+/*rendering the items from the API to the gallery setup
+ */
 function renderResults(entry) {
   const $listItem = document.createElement('li');
   $listItem.setAttribute('class', 'column-third');
@@ -125,6 +135,8 @@ function renderResults(entry) {
   return $listItem;
 }
 
+/* chaning the views on the screen
+ */
 function viewSwap(view) {
   if (view === 'search-results') {
     $searchResults.className = 'form-container';
@@ -167,6 +179,8 @@ function viewSwap(view) {
   data.view = view;
 }
 
+/*no results text for when the search query generates no results
+ */
 function toggleNoResultsText() {
   if (data.matches.length !== 0) {
     $noResultsText.className = 'hidden';
@@ -175,12 +189,16 @@ function toggleNoResultsText() {
   }
 }
 
+/*toggles the hamburger menu options
+ */
 function toggleMenu() {
   if ($menuItems.className === 'menu') {
     $menuItems.className = 'menu hidden';
   }
 }
 
+/* when clicking the hamburger menu
+ */
 $hamburgerMenu.addEventListener('click', function (event) {
   if ($menuItems.className === 'menu hidden') {
     $menuItems.className = 'menu';
@@ -189,17 +207,26 @@ $hamburgerMenu.addEventListener('click', function (event) {
   }
 });
 
+/*when clicking the home button in the hamburger menu
+ */
+
 $home.addEventListener('click', function () {
   viewSwap('search-form');
   toggleMenu();
   $ul.innerHTML = '';
   artStyle = null;
+  data.workspace = [];
+  const workspaceLi = $workspaceUl.firstElementChild;
+  workspaceLi.parentNode.removeChild(workspaceLi);
   $form.reset();
 });
 
 $gallery.addEventListener('click', function () {
   viewSwap('search-results');
   $showcaseUl.classList.add('hidden');
+  data.workspace = [];
+  const workspaceLi = $workspaceUl.firstElementChild;
+  workspaceLi.parentNode.removeChild(workspaceLi);
   toggleMenu();
   $form.reset();
   if (artStyle === null) {
@@ -247,6 +274,8 @@ $ul.addEventListener('click', function (event) {
 $showcaseLink.addEventListener('click', function (event) {
   viewSwap('showcase');
   toggleMenu();
+  const workspaceLi = $workspaceUl.firstElementChild;
+  workspaceLi.parentNode.removeChild(workspaceLi);
 });
 
 function renderShowcase(entry) {
@@ -321,7 +350,7 @@ $showcaseUl.addEventListener('click', function (event) {
     const entryId = Number(clickedParent.getAttribute('data-entry-id'));
 
     for (let i = 0; i < data.showcase.length; i++) {
-      if (entryId === data.showcase[i].id) {
+      if (entryId === data.showcase[i].id && data.workspace.length === 0) {
         data.workspace.push(data.showcase[i]);
         result = renderWorkspace(data.showcase[i]);
         $workspaceUl.append(result);
@@ -478,6 +507,12 @@ $workspaceUl.addEventListener('click', function (event) {
     const stars = [...clickedParent.getElementsByClassName('fa-star')];
 
     executeRating(stars);
+
+    for (let i = 0; i < stars.length; i++) {
+      if (stars[i].className === 'fa-solid fa-star fa-xl bg') {
+        data.workspace[0].rating++;
+      }
+    }
   }
 });
 
@@ -501,4 +536,184 @@ function executeRating(stars) {
       }
     };
   });
+}
+
+$saveButton.addEventListener('click', function (event) {
+  viewSwap('showcase');
+  const workspaceLi = $workspaceUl.firstElementChild;
+
+  if (workspaceLi) {
+    const workspaceId = Number(workspaceLi.getAttribute('data-entry-id'));
+    const showcaseArray = [...$showcaseUl.children];
+
+    for (let i = 0; i < showcaseArray.length; i++) {
+      const showcaseEntry = showcaseArray[i];
+      const showcaseId = Number(showcaseArray[i].getAttribute('data-entry-id'));
+
+      if (showcaseId === workspaceId) {
+        const clonedLi = renderFromWorkspaceToShowcase(data.workspace[0]);
+        console.log(data.workspace[0]);
+        $showcaseUl.insertBefore(clonedLi, showcaseEntry);
+        workspaceLi.parentNode.removeChild(workspaceLi);
+        showcaseEntry.parentNode.removeChild(showcaseEntry);
+        return;
+      }
+    }
+  }
+});
+
+function renderFromWorkspaceToShowcase(entry) {
+  if (data.workspace.length === 1) {
+    const $listItem = document.createElement('li');
+
+    const $image = document.createElement('img');
+    $image.setAttribute('class', 'gallery-img');
+
+    if (entry.imageId === null) {
+      $image.setAttribute('src', 'images/placeholder-image.jpg');
+    } else {
+      $image.setAttribute(
+        'src',
+        `https://www.artic.edu/iiif/2/${entry.imageId}/full/843,/0/default.jpg`,
+      );
+    }
+
+    $listItem.appendChild($image);
+
+    const $heartBox = document.createElement('div');
+    $heartBox.setAttribute('class', 'heart-box');
+    $listItem.append($heartBox);
+
+    const $heart = document.createElement('i');
+    $heart.setAttribute('class', 'fa-solid fa-heart fa-xl red-bg');
+    $heartBox.appendChild($heart);
+
+    const $starsBox = document.createElement('div');
+    $starsBox.setAttribute('class', 'stars-box');
+    $heartBox.append($starsBox);
+
+    const $star1 = document.createElement('i');
+
+    if (entry.rating === 1) {
+      $star1.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 2) {
+      $star1.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 3) {
+      $star1.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 4) {
+      $star1.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 5) {
+      $star1.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else {
+      $star1.setAttribute('class', 'fa-regular fa-star fa-xl');
+    }
+
+    $star1.setAttribute('id', 'one');
+    $starsBox.appendChild($star1);
+
+    const $star2 = document.createElement('i');
+
+    if (entry.rating === 2) {
+      $star2.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 3) {
+      $star2.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 4) {
+      $star2.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 5) {
+      $star2.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else {
+      $star2.setAttribute('class', 'fa-regular fa-star fa-xl');
+    }
+
+    $star2.setAttribute('id', 'two');
+    $starsBox.appendChild($star2);
+
+    const $star3 = document.createElement('i');
+
+    if (entry.rating === 3) {
+      $star3.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 4) {
+      $star3.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 5) {
+      $star3.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else {
+      $star3.setAttribute('class', 'fa-regular fa-star fa-xl');
+    }
+
+    $star3.setAttribute('id', 'three');
+    $starsBox.appendChild($star3);
+
+    const $star4 = document.createElement('i');
+
+    if (entry.rating === 4) {
+      $star4.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else if (entry.rating === 5) {
+      $star4.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else {
+      $star4.setAttribute('class', 'fa-regular fa-star fa-xl');
+    }
+
+    $star4.setAttribute('id', 'four');
+    $starsBox.appendChild($star4);
+
+    const $star5 = document.createElement('i');
+
+    if (entry.rating === 5) {
+      $star5.setAttribute('class', 'fa-solid fa-star fa-xl bg');
+    } else {
+      $star5.setAttribute('class', 'fa-regular fa-star fa-xl');
+    }
+
+    $star5.setAttribute('id', 'five');
+    $starsBox.appendChild($star5);
+
+    const $title = document.createElement('h4');
+    $title.setAttribute('class', 'title-text');
+    $title.textContent = entry.title;
+    $listItem.appendChild($title);
+
+    const $tagline = document.createElement('h5');
+    $tagline.setAttribute('class', 'tagline-text');
+    if (entry.artistTitle === null) {
+      $tagline.textContent = `unknown, ${entry.startDate}-${entry.endDate}`;
+    } else if (entry.startDate === entry.endDate) {
+      $tagline.textContent = `${entry.artistTitle}, ${entry.endDate}`;
+    } else {
+      $tagline.textContent = `${entry.artistTitle}, ${entry.startDate}-${entry.endDate}`;
+    }
+
+    $listItem.setAttribute('data-entry-id', entry.id);
+
+    $listItem.appendChild($tagline);
+
+    const $descriptionHeaderBox = document.createElement('div');
+    $descriptionHeaderBox.setAttribute('class', 'description-header-box');
+    $listItem.appendChild($descriptionHeaderBox);
+
+    const $descriptionLabel = document.createElement('p');
+    $descriptionLabel.setAttribute('class', 'description-header-text');
+    $descriptionLabel.textContent = 'Description';
+    $descriptionHeaderBox.appendChild($descriptionLabel);
+
+    const $plus = document.createElement('i');
+    $plus.setAttribute('class', 'fa-solid fa-plus fa-sm');
+    $descriptionHeaderBox.appendChild($plus);
+
+    const $descriptionBox = document.createElement('div');
+    $descriptionBox.setAttribute('class', 'hidden description-box');
+    $listItem.appendChild($descriptionBox);
+
+    const $description = document.createElement('p');
+    if (entry.description === null) {
+      $description.textContent = 'No description available';
+    } else {
+      $description.innerHTML = `${entry.description}`;
+    }
+
+    $description.setAttribute('class', 'description-text');
+
+    $descriptionBox.append($description);
+
+    return $listItem;
+  }
 }
