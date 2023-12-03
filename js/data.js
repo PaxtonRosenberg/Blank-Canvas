@@ -2,7 +2,6 @@
 
 let data = {
   view: 'search-form',
-  matches: [],
   showcase: [],
   workspace: [],
   nextPageId: 1,

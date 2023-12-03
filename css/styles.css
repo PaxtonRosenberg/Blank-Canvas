@@ -128,7 +128,8 @@ a:hover {
 
 .gallery-img {
   width: 250px;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
   cursor: pointer;
   margin-top: 2rem;
   box-shadow: 0.5rem 0.5rem 1rem grey;
