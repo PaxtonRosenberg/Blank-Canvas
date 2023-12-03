@@ -26,6 +26,9 @@ const $home = document.querySelector('.home-link');
 const $gallery = document.querySelector('.gallery-link');
 const $styleOption = document.querySelectorAll('.style-option');
 const $saveButton = document.querySelector('.save-rating');
+const $yes = document.querySelector('.yes');
+const $no = document.querySelector('.no');
+const $deleteModalOverlay = document.querySelector('.overlay-toggle');
 let artStyle = null;
 let result;
 let matches = [];
@@ -37,11 +40,12 @@ function ajaxRequest() {
   const xhr = new XMLHttpRequest();
   xhr.open(
     'GET',
-    'https://api.artic.edu/api/v1/artworks?fields=id,artist_title,date_display,date_start,date_end,department_title,description,image_id,title&limit=100&page=2',
+    'https://api.artic.edu/api/v1/artworks?fields=id,artist_title,date_display,date_start,date_end,department_title,description,image_id,title&limit=100&page=99',
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     const artworks = xhr.response.data;
+    console.log(artworks);
     for (let i = 0; i < artworks.length; i++) {
       if (artworks[i].department_title === artStyle) {
         const artObject = {};
@@ -58,7 +62,6 @@ function ajaxRequest() {
         matches.push(artObject);
       }
     }
-    console.log(matches);
     toggleNoResultsText();
     for (let i = 0; i < matches.length; i++) {
       result = renderResults(matches[i]);
@@ -413,7 +416,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 /*makes an image in on the showcase page clickable and changes the view to the workspace page, this also
 will delete an item from the showcase page by clicking the heart when it is filled in. I used this link
 to help with deleting an item from a specific index in local storage: https://sentry.io/answers/remove-specific-item-from-array/
- */
+Also, deletes the entry when the yes button is clicked
+*/
 $showcaseUl.addEventListener('click', function (event) {
   if (event.target.tagName === 'IMG' && data.view === 'showcase') {
     viewSwap('workspace');
@@ -433,36 +437,45 @@ $showcaseUl.addEventListener('click', function (event) {
     event.target.tagName === 'I' &&
     event.target.className === 'fa-solid fa-heart fa-xl red-bg'
   ) {
-    heartButtonToggle(event.target);
     const favoriteToDelete = event.target.closest('li');
     const favoriteToDeleteId = Number(
       favoriteToDelete.getAttribute('data-entry-id'),
     );
 
-    const showcaseArray = [...$showcaseUl.children];
+    $deleteModalOverlay.className = 'overlay-toggle';
+    $yes.addEventListener('click', function (event) {
+      const showcaseArray = [...$showcaseUl.children];
 
-    for (let i = 0; i < showcaseArray.length; i++) {
-      const showcaseEntry = showcaseArray[i];
-      const showcaseId = Number(showcaseEntry.getAttribute('data-entry-id'));
+      for (let i = 0; i < showcaseArray.length; i++) {
+        const showcaseEntry = showcaseArray[i];
+        const showcaseId = Number(showcaseEntry.getAttribute('data-entry-id'));
 
-      if (showcaseId === favoriteToDeleteId) {
-        favoriteToDelete.parentNode.removeChild(favoriteToDelete);
+        if (showcaseId === favoriteToDeleteId) {
+          favoriteToDelete.parentNode.removeChild(favoriteToDelete);
 
-        if (previousDataJSON !== null) {
-          let storedFavorites = JSON.parse(previousDataJSON);
-          for (let x = 0; x < storedFavorites.length; x++) {
-            if (storedFavorites[x].id === favoriteToDeleteId) {
-              const deletedFavorite = storedFavorites.splice(x, 1);
-              const showcaseDelete = data.showcase.splice(x, 1);
-              const updatedFavoritesJSON = JSON.stringify(storedFavorites);
-              localStorage.setItem('favorite', updatedFavoritesJSON);
-              break;
+          if (previousDataJSON !== null) {
+            let storedFavorites = JSON.parse(previousDataJSON);
+            for (let x = 0; x < storedFavorites.length; x++) {
+              if (storedFavorites[x].id === favoriteToDeleteId) {
+                const deletedFavorite = storedFavorites.splice(x, 1);
+                const showcaseDelete = data.showcase.splice(x, 1);
+                const updatedFavoritesJSON = JSON.stringify(storedFavorites);
+                localStorage.setItem('favorite', updatedFavoritesJSON);
+                break;
+              }
             }
           }
         }
       }
-    }
+      $deleteModalOverlay.className = 'hidden overlay-toggle';
+    });
   }
+});
+
+/*removes the delete menu option if the no button is clicked
+ */
+$no.addEventListener('click', function (event) {
+  $deleteModalOverlay.className = 'hidden overlay-toggle';
 });
 
 /*workspace menu button toggle

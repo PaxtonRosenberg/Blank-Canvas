@@ -237,3 +237,64 @@ a:hover {
   margin-left: 0.5rem;
   cursor: pointer;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  height: 131px;
+  width: 319px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -175px;
+  background-color: #fbfaf0;
+  border: 0.2rem solid #bd133c;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.no {
+  color: #292929;
+  background-color: #b6b6b6;
+  width: 84px;
+  height: 32px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.yes {
+  color: #fbfaf0;
+  background-color: #dc2626;
+  width: 92px;
+  height: 32px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.deleteText {
+  text-align: center;
+  font-family: 'Gothic A1', sans-serif;
+}
