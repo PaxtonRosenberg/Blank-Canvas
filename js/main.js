@@ -410,7 +410,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   $showcaseUl.appendChild(fragment);
 });
 
-/*makes an image in on the showcase page clickable and changes the view to the workspace page
+/*makes an image in on the showcase page clickable and changes the view to the workspace page, this also
+will delete an item from the showcase page by clicking the heart when it is filled in. I used this link
+to help with deleting an item from a specific index in local storage: https://sentry.io/answers/remove-specific-item-from-array/
  */
 $showcaseUl.addEventListener('click', function (event) {
   if (event.target.tagName === 'IMG' && data.view === 'showcase') {
@@ -425,6 +427,39 @@ $showcaseUl.addEventListener('click', function (event) {
         data.workspace.push(data.showcase[i]);
         result = renderWorkspace(data.workspace[0]);
         $workspaceUl.append(result);
+      }
+    }
+  } else if (
+    event.target.tagName === 'I' &&
+    event.target.className === 'fa-solid fa-heart fa-xl red-bg'
+  ) {
+    heartButtonToggle(event.target);
+    const favoriteToDelete = event.target.closest('li');
+    const favoriteToDeleteId = Number(
+      favoriteToDelete.getAttribute('data-entry-id'),
+    );
+
+    const showcaseArray = [...$showcaseUl.children];
+
+    for (let i = 0; i < showcaseArray.length; i++) {
+      const showcaseEntry = showcaseArray[i];
+      const showcaseId = Number(showcaseEntry.getAttribute('data-entry-id'));
+
+      if (showcaseId === favoriteToDeleteId) {
+        favoriteToDelete.parentNode.removeChild(favoriteToDelete);
+
+        if (previousDataJSON !== null) {
+          let storedFavorites = JSON.parse(previousDataJSON);
+          for (let x = 0; x < storedFavorites.length; x++) {
+            if (storedFavorites[x].id === favoriteToDeleteId) {
+              const deletedFavorite = storedFavorites.splice(x, 1);
+              const showcaseDelete = data.showcase.splice(x, 1);
+              const updatedFavoritesJSON = JSON.stringify(storedFavorites);
+              localStorage.setItem('favorite', updatedFavoritesJSON);
+              break;
+            }
+          }
+        }
       }
     }
   }
