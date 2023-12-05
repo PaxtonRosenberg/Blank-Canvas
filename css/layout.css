@@ -1,0 +1,104 @@
+.menu-bars-container {
+  display: flex;
+  flex-basis: 15%;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 70%;
+}
+
+.header-container {
+  width: 100%;
+  height: 9.375rem;
+  display: flex;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.form-actions-container {
+  display: flex;
+  align-items: center;
+}
+
+.selections-container {
+  display: flex;
+}
+
+.period-selections-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.style-selections-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-third {
+  flex-basis: calc(100% / 4);
+}
+
+.description-header-box {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .header-container {
+    flex-basis: 100%;
+  }
+
+  h1.title {
+    font-size: 2rem;
+  }
+
+  img.logo {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  label {
+    font-size: 0.75rem;
+  }
+
+  .form-actions-container {
+    display: block;
+  }
+
+  .selections-container {
+    display: block;
+  }
+
+  .period-selections-container select,
+  .style-selections-container select,
+  .buttons-container button {
+    width: 100%;
+  }
+
+  .column-third {
+    width: 100%;
+  }
+
+  .workspace-img {
+    width: 25rem;
+  }
+
+  .description-box {
+    width: 400px;
+  }
+}

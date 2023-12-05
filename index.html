@@ -1,20 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blank Canvas</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&family=Playpen+Sans:wght@500&family=Roboto:wght@100&family=Sometype+Mono:wght@700&display=swap"
+      rel="stylesheet" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="menu-bars-container">
+          <i class="fa-solid fa-bars fa-2xl hamburger"></i>
+          <div class="menu hidden">
+            <a class="home-link">Home</a>
+            <a class="gallery-link">Gallery</a>
+            <a class="showcase-link">Showcase</a>
+            <a class="workspace-link">Workspace</a>
+          </div>
+        </div>
+        <div class="title-container">
+          <h1 class="title">Blank Canvas</h1>
+          <img
+            class="logo"
+            src="images/Blank-Canvas-Logo.jpeg"
+            alt="Blank-Canvas-Logo" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <h2 class="gallery-text hidden">Gallery</h2>
+      <button type="button" class="save-rating hidden">Save</button>
+      <p class="no-results hidden">No artwork to show</p>
+      <div class="form-container" data-view="search-form">
+        <form id="art-selections">
+          <div class="form-actions-container">
+            <div class="selections-container">
+              <div class="style-selections-container">
+                <label for="art-style">Choose an art style</label>
+                <select name="art-style" id="art-style" required>
+                  <option class="exclude" value="" disabled selected>
+                    Select
+                  </option>
+                  <option class="style-option" value="AIC Archives">
+                    AIC Archives
+                  </option>
+                  <option class="style-option" value="Architecture and Design">
+                    Architecture and Design
+                  </option>
+                  <option
+                    class="style-option"
+                    value="Arts of the Ancient Mediterranean and Byzantium">
+                    Arts of the Ancient Mediterranean and Byzantium
+                  </option>
+                  <option class="style-option" value="Applied Arts of Europe">
+                    Applied Arts of Europe
+                  </option>
+                  <option class="style-option" value="Arts of Africa">
+                    Arts of Africa
+                  </option>
+                  <option class="style-option" value="Arts of the Americas">
+                    Arts of the Americas
+                  </option>
+                  <option class="style-option" value="Arts of Asia">
+                    Arts of Asia
+                  </option>
+                  <option class="style-option" value="Contemporary Art">
+                    Contemporary Art
+                  </option>
+                  <option class="style-option" value="Modern Art">
+                    Modern Art
+                  </option>
+                  <option
+                    class="style-option"
+                    value="Painting and Sculpture of Europe">
+                    Painting and Sculpture of Europe
+                  </option>
+                  <option class="style-option" value="Prints and Drawings">
+                    Prints and Drawings
+                  </option>
+                  <option class="style-option" value="Photography and Media">
+                    Photography and Media
+                  </option>
+                  <option class="style-option" value="Textiles">
+                    Textiles
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="buttons-container">
+              <button type="button" class="randomize">Randomize</button>
+              <button type="submit" class="create">Create Gallery</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="form-container hidden" data-view="search-results">
+        <ul></ul>
+      </div>
+      <div class="form-container hidden" data-view="showcase">
+        <ul class="showcase-list"></ul>
+      </div>
+      <div class="hidden" data-view="workspace">
+        <ul class="workspace-list"></ul>
+      </div>
+    </main>
+    <div class="hidden overlay-toggle">
+      <div class="overlay">
+        <div class="popup">
+          <div>
+            <h3 class="deleteText">
+              Are you sure you want to delete this entry?
+            </h3>
+          </div>
+          <div class="modal-container">
+            <div>
+              <button class="no">NO</button>
+            </div>
+            <div>
+              <button class="yes">YES</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

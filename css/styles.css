@@ -1,0 +1,300 @@
+body {
+  background-color: #fbfaf0;
+}
+
+label {
+  font-family: 'Gothic A1', sans-serif;
+}
+
+button {
+  font-family: 'Gothic A1', sans-serif;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+li {
+  margin: 0 2rem;
+  padding: 1rem 2rem;
+}
+
+.workspace-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.header-container {
+  background-color: #bd133c;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  color: black;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.menu {
+  position: relative;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 0.5px dashed black;
+}
+
+.menu a {
+  color: white;
+  display: block;
+  background-color: #bd133c;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.menu a:hover {
+  color: lightgrey;
+}
+
+.title {
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 0.5rem;
+}
+
+.logo {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.form-actions-container {
+  margin-top: 5rem;
+}
+
+.period-selections-container {
+  padding: 3rem;
+}
+
+.style-selections-container {
+  padding: 3rem;
+}
+
+.buttons-container {
+  padding: 3rem;
+  margin: 1rem;
+}
+
+.randomize {
+  color: white;
+  background-color: #13c1c1;
+  border-radius: 4%;
+  width: 7.75rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.create {
+  color: white;
+  background-color: #bd133c;
+  border-radius: 4%;
+  width: 7.75rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+#art-style {
+  margin: 0.5rem 0;
+}
+
+.gallery-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-top: 2rem;
+  box-shadow: 0.5rem 0.5rem 1rem grey;
+}
+
+.gallery-text {
+  margin-left: 1rem;
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+}
+
+.title-text {
+  font-size: 1rem;
+  font-style: italic;
+  font-family: 'Gothic A1', sans-serif;
+  width: 15rem;
+  margin-top: 0;
+}
+
+.tagline-text {
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 0.75rem;
+  width: 15rem;
+  margin: 0.2rem 0;
+}
+
+.heart-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2.5rem;
+  width: 100%;
+}
+
+.stars-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 2.5rem;
+  width: 100%;
+}
+
+.red-bg {
+  color: red;
+}
+
+.black-bg {
+  color: black;
+}
+
+.fa-heart,
+.fa-star {
+  cursor: pointer;
+}
+
+.fa-star:hover {
+  color: goldenrod;
+}
+
+.bg {
+  color: goldenrod;
+}
+
+.save-rating {
+  margin-left: 3.2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10%;
+  background-color: #bd133c;
+  color: #fbfaf0;
+  font-family: 'Gothic A1', sans-serif;
+  box-shadow: 0.1rem 0.1rem 0.1rem grey;
+}
+
+.save-rating:hover {
+  box-shadow: 0.1rem 0.1rem 0.1rem black;
+  cursor: pointer;
+}
+
+.description-text {
+  font-family: 'Gothic A1', sans-serif;
+  word-spacing: 0.1rem;
+  line-height: 1.5rem;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.description-header-text {
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 0.75rem;
+}
+
+.description-box {
+  border: 0.2rem solid #bd133c;
+  border-radius: 5%;
+  background-color: #fbfaf0;
+  max-width: 850px;
+}
+
+.fa-plus,
+.fa-minus {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  height: 131px;
+  width: 319px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -175px;
+  background-color: #fbfaf0;
+  border: 0.2rem solid #bd133c;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.no {
+  color: #292929;
+  background-color: #b6b6b6;
+  width: 84px;
+  height: 32px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.yes {
+  color: #fbfaf0;
+  background-color: #dc2626;
+  width: 92px;
+  height: 32px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.deleteText {
+  text-align: center;
+  font-family: 'Gothic A1', sans-serif;
+}
