@@ -40,7 +40,7 @@ function ajaxRequest() {
   const xhr = new XMLHttpRequest();
   xhr.open(
     'GET',
-    'https://api.artic.edu/api/v1/artworks?fields=id,artist_title,date_display,date_start,date_end,department_title,description,image_id,title&limit=100&page=99',
+    'https://api.artic.edu/api/v1/artworks?fields=id,artist_title,date_display,date_start,date_end,department_title,description,image_id,title&limit=100',
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
