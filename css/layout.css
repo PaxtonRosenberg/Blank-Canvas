@@ -94,8 +94,13 @@
     width: 100%;
   }
 
+  .gallery-img {
+    margin-right: 2rem;
+  }
+
   .workspace-img {
     width: 25rem;
+    margin-right: 2rem;
   }
 
   .description-box {
