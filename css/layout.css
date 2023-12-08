@@ -92,10 +92,7 @@
 
   .column-third {
     width: 100%;
-  }
-
-  .gallery-img {
-    margin-right: 2rem;
+    margin-right: 4rem;
   }
 
   .workspace-img {
