@@ -45,7 +45,6 @@ function ajaxRequest() {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     const artworks = xhr.response.data;
-    console.log(artworks);
     for (let i = 0; i < artworks.length; i++) {
       if (artworks[i].department_title === artStyle) {
         const artObject = {};
