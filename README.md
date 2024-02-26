@@ -25,7 +25,7 @@ Try the application live at https://paxtonrosenberg.github.io/Blank-Canvas/
 
 ## Preview
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExend5aWtwb2NyamU3MHhwaHNqcGdwdDY2dHlqOHJ1OWI5b3FzZnMxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oItLo5Zk6U5mhwhWdD/giphy.gif></img>
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzE5Zm1peXB3dW50d3M5amZyY2sxejhleGlyMjFqMWJjMWUzcWo0biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oItLo5Zk6U5mhwhWdD/giphy.gif">
 
 ## Development
 
