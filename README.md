@@ -40,7 +40,7 @@ Try the application live at https://paxtonrosenberg.github.io/Blank-Canvas/
 
     ```shell
     git clone https://github.com/PaxtonRosenberg/Blank-Canvas.git
-    cd blankcanvas
+    cd blank-canvas
     ```
 
 1. Install all dependencies with NPM.
