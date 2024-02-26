@@ -1,4 +1,3 @@
-```md
 # Blank Canvas
 
 A web application built using HTML, CSS and JavaScript where users can search, view and favorite selected works.
@@ -15,7 +14,7 @@ As someone who enjoys going to museums, I wanted to build an application that co
 
 ## Live Demo
 
-Try the application live at [https://student-grade-table.lfz.com](https://student-grade-table.lfz.com](https://paxtonrosenberg.github.io/Blank-Canvas/)
+Try the application live at https://paxtonrosenberg.github.io/Blank-Canvas/
 
 ## Features
 
@@ -26,7 +25,7 @@ Try the application live at [https://student-grade-table.lfz.com](https://studen
 
 ## Preview
 
-[![SGT React](assets/sgt-react.gif)](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExend5aWtwb2NyamU3MHhwaHNqcGdwdDY2dHlqOHJ1OWI5b3FzZnMxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oItLo5Zk6U5mhwhWdD/giphy.gif)
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExend5aWtwb2NyamU3MHhwaHNqcGdwdDY2dHlqOHJ1OWI5b3FzZnMxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oItLo5Zk6U5mhwhWdD/giphy.gif></img>
 
 ## Development
 
