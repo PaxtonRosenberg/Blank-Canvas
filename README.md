@@ -39,7 +39,7 @@ Try the application live at https://paxtonrosenberg.github.io/Blank-Canvas/
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/PaxtonRosenberge/blankcanvas
+    git clone https://github.com/PaxtonRosenberg/Blank-Canvas.git
     cd blankcanvas
     ```
 
